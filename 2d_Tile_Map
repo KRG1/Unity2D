@@ -18,3 +18,18 @@ Tile Map Generation
         StartPoint = new Vector2 (1, 1);
         PopulateTileMap ();
     }
+
+public void PopulateTileMap ()
+{
+    for(int i = 0 ; i < 3 ; i ++)
+    {
+        for(int j = 0 ; j < 3 ; j ++)
+        {
+
+            GameObject prefab = Resources.Load ("tile_"+tileMap[i,j].ToString()) as GameObject;
+            GameObject tile = Instantiate(prefab, Vector3.zero, Quaternion.identity ) as GameObject;
+            tile.transform.position = new Vector3(StartPoint.x + ( TileSize * i ) + ( TileSize/2) , StartPoint.y + (TileSize * j ) + ( TileSize/2), 0);
+
+        }
+    }
+} 
